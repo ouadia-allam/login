@@ -1,164 +1,76 @@
-<!--<link rel="stylesheet" href="api/chat/login.css">
-<script src="api/chat/login.js"></script>
-192.168.1.5:5000/login
--->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>loging page</title>
-    <!--boxicons-->
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="assets/login.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Modern Login Page | AsmrProg</title>
 </head>
 
 <body>
-    <div class="form-conainer">
 
-        <div class=" col col-1">
-            <div class="image-layer">
-                <img src="with-outline.png" alt="" class="form-image-main">
-                <img src="dots.png" alt="" class="form-image node">
-                <img src="coin.png" alt="" class="form-image coin">
-                <img src="spring.png" alt="" class="form-image spring">
-                <img src="rocket.png" alt="" class="form-image rocket">
-                <img src="cloude.png" alt="" class="form-image cloud">
-                <img src="stars.png" alt="" class="form-image cloude">
-            </div>
-            <p class="featured-words">coment one <span>aefo</span> </p>
-        </div>
-        <div class="col col-2">
-            <div class="bot-box">
-                <button class="btn btn-1" id="login">sing in</button>
-                <button class="btn btn-1" id="register">sing up</button>
-            </div>
-
-            <!--login form container-->
-            <div class="login-form">
-                <div class="form-title">
-                    <span>Sing in</span>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form id="form-singup" >
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <form class="form-inputs" id="form-singin">
-                    <div class="input-box">
-                        <label for="usrname"></label>
-                        <input type="text" class="input-field" name="username" value="" placeholder="username or email">
-                        <i class="bx bx-user"> </i>
-                    </div>
+                <span>or use your email for registeration</span>
+                <input type="text" name="email" placeholder="Name">
+                <input type="email" name="username" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form id="form-singin">
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email password</span>
+                <label for="usrname"></label>
+                <input type="text"  name="username" value="" placeholder="username or email">
+                
+                <label for="password"></label>
+                <input type="password"  name="password" value="" placeholder="password">
 
-                    <div class="input-box">
-                        <label for="password"></label>
-                        <input type="password" class="input-field" name="password" value="" placeholder="password">
-                        <i class="bx bx-lock-alt icon"> </i>
-                    </div>
-                    <div class="forgot-pass">
-                        <a href="#">Forgot Password ?</a>
-                    </div>
-                    <div class="input-box">
-                        <button type="button" onclick="sing_in()" class="input-submit" id="btn-singin">
-                            <span>Sing in</span>
-                            <i class="bx.bx-right-arrow-alt"></i>
-                        </button>
-                    </div>
-                </form>
+                
+                <a href="#">Forget Your Password?</a>
+                
+
+                <button type="button" onclick="sing_in()"  id="btn-singin">
+                    <span>Sing in</span>
+                </button>
                 <div class="form-error" id="error-singin">
                     <span>Sing in ERROR</span>
                 </div>
-                <div class="social-login">
-                    <i class="bx bxl-google"></i>
-                    <i class="bx bxl-facebook"></i>
-                    <i class="bx bxl-twitter"></i>
-                    <i class="bx bxl-github"></i>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" type="button" onclick="sing_up()"  id="btn-singup">Sign Up</button>
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-    <script src="assets/login.js"></script>
+    </div> 
 </body>
-<script>
-
-async function sing_in() {
-  // add cheek form here before post
-  const formerror = document.getElementById('error-singin');
-  const response = await post('form-singin');
-  try {
-    if (response.message != 'login') {
-      formerror.innerHTML = `<span style="color:red">${response.message}<span>`;
-    }else{
-      formerror.innerHTML = `<span style="color:green">${response.message}<span>`;
-      sessionStorage.setItem('auth',response.auth);
-      sessionStorage.setItem('username',response.username);
-      window.location.replace(`/@${response.username}`);
-    }
-  } catch (error) {
-    formerror.innerHTML = '<span style="color:red">an error ocured, please try again.<span>'
-  }
-}
-
-async function sing_up() {
-  // add cheek form here before post
-  const formerror = document.getElementById('error-singup');
-  const response = await post('form-singup');
-  try {
-    if (response.message != 'login') {
-      formerror.innerHTML = `<span style="color:red">${response.message}<span>`;
-    }else{
-      formerror.innerHTML = `<span style="color:green">${response.message}<span>`;
-      sessionStorage.setItem('auth',response.auth);
-      sessionStorage.setItem('username',response.username);
-      window.location.replace(`/@${response.username}`);
-    }
-  } catch (error) {
-    formerror.innerHTML = '<span style="color:red">an error ocured, please try again.<span>'
-  }
-}
-
-
-async function post(formid){
-  try {
-    const formId = document.getElementById(formid);
-    const form = new FormData(formId);
-    form.append('type',formid);
-    const res = await fetch('/login', {
-        method: "POST",
-        body: form,
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    const response = await res.json();
-    console.log(response.message, response);
-    return response;
-  } catch (error) {
-    console.error('error:',error);
-  }
-}
-
-async function auth(){
-  try {
-    const form = new FormData();
-    form.append('auth',sessionStorage.getItem('auth'));
-    form.append('type','form-auth');
-    const res = await fetch('/login', {
-        method: "POST",
-        body: form,
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    const response = await res.json();
-    if(response.message == 'auth'){
-      window.location.replace(`/@${sessionStorage.getItem('username')}`);
-    }
-  } catch (error) {
-    console.error('error:',error);
-  }
-}
-auth(); //auto login
-</script>
+<script src="post.js"></script>
 </html>
