@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Modern Login Page | AsmrProg</title>
+    <title> Login Page</title>
 </head>
 
 <body>
@@ -22,13 +22,16 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registeration</span>
-                <input type="text" name="email" placeholder="Name">
-                <input type="email" name="username" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <label for="username"></label>
+                <input type="text" name="username" placeholder="username">
+                <label for="email"></label>
+                <input type="email" name="email" name="email" placeholder="Email">
+                <label for="password"></label>
+                <input type="password" name="password" placeholder="Password">
                 <button>Sign Up</button>
             </form>
         </div>
-        <div class="form-container sign-in">
+        <div class="form-container" id="sign-in">
             <form id="form-singin">
                 <h1>Sign In</h1>
                 <div class="social-icons">
@@ -38,19 +41,12 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email password</span>
-                <label for="usrname"></label>
-                <input type="text"  name="username" value="" placeholder="username or email">
-                
+                <label for="username"></label>
+                <input type="email" name="username" placeholder="username">
                 <label for="password"></label>
-                <input type="password"  name="password" value="" placeholder="password">
-
-                
+                <input type="password"  name="password" placeholder="Password">
                 <a href="#">Forget Your Password?</a>
-                
-
-                <button type="button" onclick="sing_in()"  id="btn-singin">
-                    <span>Sing in</span>
-                </button>
+                <button type="button" onclick="sing_in()">Sign In</button>
                 <div class="form-error" id="error-singin">
                     <span>Sing in ERROR</span>
                 </div>
@@ -66,11 +62,13 @@
                 <div class="toggle-panel toggle-right">
                     <h1>Hello, Friend!</h1>
                     <p>Register with your personal details to use all of site features</p>
-                    <button class="hidden" type="button" onclick="sing_up()"  id="btn-singup">Sign Up</button>
+                    <button class="hidden" id="register">Sign Up</button>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
+
+    <script src="scrip.js"></script>
 </body>
-<script src="post.js"></script>
+
 </html>
