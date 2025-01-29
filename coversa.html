@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Chat Conversation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 500px;
+            min-height: 400px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .messages {
+            padding: 20px;
+            overflow-y: auto;
+            flex-grow: 1;
+            height: 80%;
+            background: linear-gradient(to top, #148190, #f1f1f1);
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .message.sent {
+            justify-content: flex-end;
+        }
+
+        .message.received {
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            padding: 12px 18px;
+            border-radius: 20px;
+            max-width: 70%;
+            font-size: 16px;
+            line-height: 1.6;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            word-wrap: break-word;
+        }
+
+        .message.sent .message-bubble {
+            background-color: #2269b5; /* Sent messages color */
+            color: white;
+            border-top-right-radius: 0;
+        }
+
+        .message.received .message-bubble {
+            background-color: #056c71; /* Received messages color */
+            color: rgb(219, 251, 254);
+            border-top-left-radius: 0;
+        }
+
+        .input-area {
+            display: flex;
+            padding: 15px;
+            background-color: #1d6062;
+            border-top: 2px solid #ddd;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .input-area input {
+            width: 85%;
+            padding: 12px 18px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-area input:focus {
+            border-color: #2269b5;
+        }
+
+        .input-area button {
+            width: 14%;
+            padding: 12px 18px;
+            background-color: #2269b5;
+            color: rgb(160, 211, 238);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .input-area button:hover {
+            background-color:#155571;
+        }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 100%;
+                margin: 10px;
+            }
+            .messages {
+                padding: 15px;
+            }
+            .message-bubble {
+                font-size: 14px;
+            }
+            .input-area input {
+                width: 80%;
+                font-size: 12px;
+            }
+            .input-area button {
+                width: 15%;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <div class="messages">
+            <div class="message received">
+                <div class="message-bubble">Hello! How can I help you today?</div>
+            </div>
+            <div class="message sent">
+                <div class="message-bubble">I need help with my order number 12345.</div>
+            </div>
+            <div class="message received">
+                <div class="message-bubble">Sure! Can you provide the details of your order?</div>
+            </div>
+            <div class="message sent">
+                <div class="message-bubble">I placed the order last week.</div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" placeholder="Type a message..." />
+            <button>Send</button>
+        </div>
+    </div>
+
+</body>
+</html>
+
