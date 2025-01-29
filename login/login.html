@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="api/chat/login/style.css">
+    <link rel="stylesheet" href="api/chat/login/default.css">
     <title>Login Page</title>
 </head>
 
@@ -27,10 +28,9 @@
                 <input type="email"  name="email" placeholder="Email">
                 <input type="password"  name="password" placeholder="Password">
                 <button type="button" onclick="sing_up()" >Sign Up</button>
+                <div class="form-error" id="error-singup">
+              </div>
             </form>
-            <div class="form-error" id="error-singup">
-                    <span>Sing in ERROR</span>
-                </div>
         </div>
         <div class="form-container sign-in">
             <form id="form-singin">
@@ -46,10 +46,9 @@
                 <input type="password"  name="password" placeholder="Password">
                 <a href="#">Forget Your Password?</a>
                 <button type="button" onclick="sing_in()" >Sign In</button>
+                <div class="form-error" id="error-singin">
+                </div>
             </form>
-            <div class="form-error" id="error-singin">
-                    <span>Sing in ERROR</span>
-            </div>
         </div>
         <div class="toggle-container">
             <div class="toggle">
