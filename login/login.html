@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title> Login Page</title>
+    <link rel="stylesheet" href="api/chat/login/style.css">
+   <title>Login Page</title>
 </head>
 
 <body>
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form id="form-singup" >
+            <form id="form-singup">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -22,16 +22,13 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registeration</span>
-                <label for="username"></label>
-                <input type="text" name="username" placeholder="username">
-                <label for="email"></label>
-                <input type="email" name="email" name="email" placeholder="Email">
-                <label for="password"></label>
-                <input type="password" name="password" placeholder="Password">
-                <button>Sign Up</button>
+                <input type="text"  name="name" placeholder="Name">
+                <input type="email"  name="email" placeholder="Email">
+                <input type="password"  name="password" placeholder="Password">
+                <button type="button" onclick="sing_up()" >Sign Up</button>
             </form>
         </div>
-        <div class="form-container" id="sign-in">
+        <div class="form-container sign-in">
             <form id="form-singin">
                 <h1>Sign In</h1>
                 <div class="social-icons">
@@ -41,15 +38,10 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email password</span>
-                <label for="username"></label>
-                <input type="email" name="username" placeholder="username">
-                <label for="password"></label>
+                <input type="email" name="username" placeholder="Email">
                 <input type="password"  name="password" placeholder="Password">
                 <a href="#">Forget Your Password?</a>
-                <button type="button" onclick="sing_in()">Sign In</button>
-                <div class="form-error" id="error-singin">
-                    <span>Sing in ERROR</span>
-                </div>
+                <button type="button" onclick="sing_in()" >Sign In</button>
             </form>
         </div>
         <div class="toggle-container">
@@ -68,7 +60,8 @@
         </div>
     </div>
 
-    <script src="scrip.js"></script>
+
+    <script src="api/chat/login/scrip.js"></script>
 </body>
 
 </html>
